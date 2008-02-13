@@ -1,0 +1,15 @@
+perl Makefile.PL
+make
+make install
+
+
+MOST PEOPLE CAN STOP READING NOW!
+
+
+For details on how to configure your own MOBY Central
+registry, should you want to set one up (you DO NOT
+need to set up a registry to access nor serve MOBY-S
+Services) please visit the "Installing a Local Registy"
+link on the biomoby.org homepage.
+
+Mark

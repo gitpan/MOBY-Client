@@ -1,0 +1,32 @@
+Perl MOBY version 0.04
+======================
+
+This directory contains the Perl implementation of the MOBY
+architecture.  The "docs" directory contains specific 
+INSTALL-*.txt commissioning procedures for each of web 
+components of MOBY: the MOBY Central, Service Provider 
+and Client software.
+
+INSTALLATION
+
+To install *all* the general Perl MOBY libraries on your system, 
+type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+There are different dependencies for each of the MOBY Central,
+Service Provider and Client components. Please consult the 
+installation documentation specific to each component.
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2003 BioMoby Developers Group (www.biomoby.org)
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
+

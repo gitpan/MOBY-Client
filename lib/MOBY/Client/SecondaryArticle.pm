@@ -24,7 +24,7 @@ Can be used either in this way:
             $prameter_value = $input->value;  # get the value of the secondary parameter
             # do your business here and fill $invocation_output
 	}
-	
+
         $MOBY_RESPONSE .= simpleResponse( # create an empty response for this queryID
                 $invocation_output   # response for this query
                 , "myOutput"  # the article name of that output object
@@ -34,16 +34,21 @@ Can be used either in this way:
 
 or to construct a representation of a Secondary article from a findService call
 to MOBY::Central
- 
+
 
 =cut
 
 =head1 DESCRIPTION
 
+A module used to describe secondary articles in moby
+
+=cut
 
 =head1 AUTHORS
 
 Mark Wilkinson (markw at illuminae dot com)
+
+=cut
 
 =head1 METHODS
 

@@ -1,4 +1,4 @@
-#$Id: Central.pm,v 1.153 2007/11/26 23:00:35 mwilkinson Exp $
+#$Id: Central.pm,v 1.2 2008/02/21 17:15:40 kawas Exp $
 package MOBY::Client::Central;
 use SOAP::Lite;
 
@@ -40,7 +40,7 @@ MOBY::Client::Central - a client side wrapper for MOBY Central
  foreach my $SERVICE(@{$Services}){
     print "Service Name: ", $SERVICE->name, "\n";
     print "Service Provider: ", $SERVICE->authority,"\n";
-	
+
  }
 
 =cut
@@ -77,7 +77,7 @@ BioMOBY Project:  http://www.biomoby.org
  Function  :	connect to one or more MOBY-Central
                 registries for searching
  Returns   :	MOBY::Client::Central object
- 
+
  ENV & PROXY : you can set environment variables to change the defaults.
              By default, a call to 'new' will initialize MOBY::Client::Central
              to connect to the MOBY Central registry at:
@@ -89,7 +89,7 @@ BioMOBY Project:  http://www.biomoby.org
              MOBY_SERVER  (default http://mobycentral.cbr.nrc.ca/cgi-bin/MOBY05/mobycentral.pl)
              MOBY_URI     (default http://mobycentral.cbr.nrc.ca/MOBY/Central)
              MOBY_PROXY   (no default)
-                
+
  Args      :    user_agent - optional.  The name of your software application
                 Registries - optional.
                            - takes the form
@@ -259,8 +259,10 @@ sub new {
   }
   $self->Connections( [] );    # initialize;
   
+ do {
   my ($central, $ontologyserver) = _getDefaultCentral();
   $self->default_MOBY_server($central) if $central;
+ } unless $ENV{MOBY_SERVER};
 
   # if user has set up preferred servers, then use those by default
 
@@ -569,7 +571,7 @@ sub deregisterServiceType {
                 authURI => your.authority.URI (required)
                 description => "human readable description of namespace" (required)
                 contactEmail => "your@address.here" (required)
-                
+
 
 =cut
 
@@ -631,7 +633,7 @@ sub deregisterNamespace {
  Function  :	register a new MOBY Service instance
  Returns   :	MOBY::Registration object
  Common Required Args :
-	 
+
      serviceName  => $serviceName,  
      serviceType  => $serviceType,  
      authURI      => $authURI,      
@@ -647,7 +649,7 @@ sub deregisterNamespace {
                      [articleName3,[[objType3 => \@namespaces],
                                     [objType4 => \@namespaces]]] # collection of multiple object types
                     ]
-   
+
 
     output:  listref; (articleName may be undef)
             output =>[
@@ -656,7 +658,7 @@ sub deregisterNamespace {
                  [articleName3,[[objType3 => \@namespaces],
                                 [objType4 => \@namespaces]]] # collection of multiple object types
                   ]
-            
+
     secondary: hashref
             secondary => {parametername1 => {
                            datatype => TYPE,
@@ -673,7 +675,7 @@ sub deregisterNamespace {
                            min => MIN,
                            enum => [one, two]}
                           }
-		
+
 
 
 =cut
@@ -735,9 +737,13 @@ sub registerService {
 
 #____________________________________________________________________________________________
 	return $self->errorRegXML(
-"Only 'moby', 'post', 'moby-async' and 'wsdl' Service Categories are currently allowed - you gave me $Category"
+"Only 'moby', 'post', 'moby-async', 'doc-literal', 'doc-literal-async' Service Categories are currently allowed - you gave me $Category"
 	  )
-	  unless ( ( $Category eq 'moby' ) || ( $Category eq 'wsdl' )|| ( $Category eq 'moby-async' ) || ( $Category eq 'post' ));
+	  unless ( ( $Category eq 'moby' )
+			  || ( $Category eq 'moby-async' )
+			  || ( $Category eq 'doc-literal' )
+			  || ( $Category eq 'doc-literal-async' )
+			  || ( $Category eq 'post' ));
 	return $self->errorRegXML(
 "All Fields Required:  serviceName, serviceType, authURI, contactEmail, URL, description, Category, input, output, secondary"
 	  )
@@ -759,7 +765,7 @@ sub registerService {
 			<authURI>$authURI</authURI>
 			<contactEmail>$email</contactEmail>";
 
-	if ( $Category eq "moby" || $Category eq 'moby-async' || $Category eq 'post') {
+
 		my %SEC;
 		if ( $a{'secondary'} && ( ref( $a{'secondary'} ) eq 'HASH' ) ) {
 			%SEC = %{ $a{secondary} };
@@ -882,10 +888,6 @@ sub registerService {
 		}
 		$message .= "</secondaryArticles>\n";
 		$message .= "</registerService>";
-	}
-	else {
-		return $self->errorRegXML("only 'moby', 'post' and 'moby-async' service types are allowed to be registered at this time.");
-	}
 
 
 	$debug && &_LOG(" message\n\n$message\n\n");
@@ -1697,7 +1699,7 @@ sub retrieveNamespacesFull {
  Args      :	registry => $reg - name of MOBY Central you want to use (must pass undef otherwise)
                 objectType => $name - object name (from ontology) or undef to get all objects
 		as_lsid => $boolean - return $name as its corresponding LSID (default off)
-    
+
 =cut
 
 sub retrieveObject {

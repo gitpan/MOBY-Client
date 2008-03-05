@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w
 
 #
-# $Id: GetResourceURLs.pl,v 1.1 2005/11/02 13:18:29 pieter Exp $
-# $Source: /home/repository/moby/moby-live/Perl/scripts/GetResourceURLs.pl,v $
+# $Id: GetResourceURLs.pl,v 1.1 2008/02/21 00:14:33 kawas Exp $
+# $Source: /home/repository/moby/moby-live/Perl/MOBY-Client/scripts/GetResourceURLs.pl,v $
 #
 
 use strict;

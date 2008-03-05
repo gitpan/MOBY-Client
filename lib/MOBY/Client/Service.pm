@@ -1,4 +1,4 @@
-#$Id: Service.pm,v 1.37 2007/02/20 15:13:42 kawas Exp $
+#$Id: Service.pm,v 1.2 2008/02/21 17:15:40 kawas Exp $
 
 =head1 NAME
 
@@ -7,7 +7,7 @@ MOBY::Client::Service - an object for communicating with MOBY Services
 =head1 SYNOPSIS
 
  use MOBY::Client::Service;
- 
+
  my $Service = MOBY::Client::Service->new(service => $WSDL);
  my $result = $Service->execute(@args);
 
@@ -308,6 +308,38 @@ sub execute {
 	}
 }
 
+
+=head2 raw_execute
+
+ Usage     :	$result = $Service->raw_execute(inputXML => "<../>")
+ Function  :	execute the MOBY service using a raw MOBY input block
+ Returns   :	whatever the Service provides as output
+ Args      :	inputXML => "<moby:MOBY>.....</moby:MOBY>"
+
+=cut
+
+sub raw_execute {
+	my ( $self, %args ) = @_;
+	my $data = $args{inputXML};
+
+  my $METHOD = $self->serviceName;
+  my $response;
+
+	if ($self->category eq 'moby'){
+		eval { ( $response ) = $self->_soapService->$METHOD( $data ) };
+		if ($@) { die "Service execution failed: $@"}
+		else {return $response;} # the service execution failed then pass back ""
+	} elsif ($self->category eq 'post'){
+		my $response = $self->_executePOSTService(data => $data, method => $METHOD);
+		# currently SOAP::Lite does not execute POST WSDL, so we need to
+		# use LWP or something like that in the executePOSTService method
+		#eval { ( $response ) = $self->_soapService->$METHOD( $data ) };
+		unless ($response){ die "Service execution failed: $@"}
+		else {return $response;} # the service execution failed then pass back ""
+	}
+	
+	
+}
 sub _executePOSTService {
 	my ($self, %args) = @_;
 	my $serviceName = $args{method};
@@ -347,15 +379,15 @@ sub _executePOSTService {
  Args      :	Input => %data
  Comment   :    %data is a hash of single invocation inputs
                 the structure of %data is:
-				
+
 				$data{$queryID} = {articleName => $inputXML1, # for simples and parameters
 				                   articleNmae => [$inputXML2, $inputXML3], # for collections
 								   }
                 $inputXML is the actual XML of the Input object
 				for example <Object namespace="NCBI_gi" id="163483"/>
-				
+
  a full example might be:
-				
+
  $data{invocation1} = {id_to_match => "<Object namespace="GO" id="0003875"/>",
                        id_list => ["<Object namespace="GO" id="0003875"/>,
 					               "<Object namespace="GO" id="0009984"/>,...

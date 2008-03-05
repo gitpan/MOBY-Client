@@ -1,8 +1,8 @@
 #!/usr/bin/perl -w
 
 #
-# $Id: FindServices.pl,v 1.5 2006/02/26 19:10:59 pieter Exp $
-# $Source: /home/repository/moby/moby-live/Perl/scripts/FindServices.pl,v $
+# $Id: FindServices.pl,v 1.1 2008/02/21 00:14:33 kawas Exp $
+# $Source: /home/repository/moby/moby-live/Perl/MOBY-Client/scripts/FindServices.pl,v $
 #
 
 use strict;

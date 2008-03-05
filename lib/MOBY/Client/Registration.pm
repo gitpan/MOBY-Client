@@ -1,4 +1,4 @@
-#$Id: Registration.pm,v 1.10 2004/12/14 20:47:04 kawas Exp $
+#$Id: Registration.pm,v 1.1 2008/02/21 00:21:27 kawas Exp $
 
 =head1 NAME
 

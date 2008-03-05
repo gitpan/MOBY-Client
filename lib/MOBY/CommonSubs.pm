@@ -1,4 +1,4 @@
-#$Id: CommonSubs.pm,v 1.101 2007/06/19 21:10:52 mwilkinson Exp $
+#$Id: CommonSubs.pm,v 1.2 2008/02/21 17:15:40 kawas Exp $
 
 =head1 NAME
 
@@ -35,12 +35,12 @@ using the subroutines provided in CommonSubs
 =head3 Services Returning Simples
 
     my $resp = $SI->execute(XMLInputList => \@input_data);
-    
+
     my $responses = serviceResponseParser($resp); # returns MOBY objects
     foreach my $queryID(keys %$responses){
         $this_invocation = $responses->{$queryID};  # this is the <mobyData> block with this queryID
         my $this_output = "";
-        
+
         if (my $data = $this_invocation->{'responseArticleName'}){  # whatever your articleName is...
             # $data is a MOBY::Client::Simple|Collection|ParameterArticle
             my ($namespace) = @{$data->namespaces};
@@ -53,14 +53,14 @@ using the subroutines provided in CommonSubs
             # DO SOMETHING TO RESPOSE DATA HERE
             ###################
         }
-        
+
     }
 
 
 =head3 Services Returning Collections
 
     my $resp = $SI->execute(XMLInputList => \@input_data);
-    
+
     my $responses = serviceResponseParser($resp); # returns MOBY objects
     foreach my $queryID(keys %$responses){  # $inputs is a hashref of $input{queryid}->{articlename} = input object
         my $this_invocation = $responses->{$queryID};
@@ -96,19 +96,19 @@ sub _generic_service_name {
     foreach my $queryID(keys %$inputs){
         $this_invocation = $inputs->{$queryID};  # this is the <mobyData> block with this queryID
         my $this_output = "";
-        
+
         if (my $input = $this_invocation->{incomingRequest}){
             my ($namespace) = @{$input->namespaces};
             my $id = $input->id; 
             my $XML_LibXML = $input->XML_DOM;  # get access to the DOM 
-            
+
             ###################
             # DO YOUR BUSINESS LOGIC HERE
             ###################
-            
+
             $this_output = "<moby:Object... rest of the output XML .../>";
         }
-        
+
         $MOBY_RESPONSE .= simpleResponse(
                   $this_output   
                 , "myArticleName" # the article name of that output object
@@ -162,7 +162,7 @@ This is a service that:
 
 
  sub getGoTerm {
- 
+
     use MOBY::CommonSubs qw{:all};
     my ($caller, $incoming_message) = @_;
     my $MOBY_RESPONSE; # holds the response raw XML
@@ -187,7 +187,7 @@ This is a service that:
         if (my $input = $this_invocation->{GO_id}){  # the articleName of your services input            
             my ($namespace) = @{$input->namespaces}; # this is returned as a list!
             my $id = $input->id;
-            
+
             # optional - if we want to ENSURE that the incoming ID is in the GO namespace
             # we can validate it using the validateThisNamespace routine of CommonSubs
             # @validNS comes from validateNamespaces routine of CommonSubs (called above)
@@ -361,7 +361,7 @@ will become
 
             $inputs->{2b2}->{name1} = $MOBY::Client::Collection, #  the <Collection> Block
             $inputs->{2b2}->{cutoff} = $MOBY::Client::Secondary, #  the <Parameter> Block
-            
+
 
 
 
@@ -740,7 +740,7 @@ notes which can include already xml encoded exceptions
 B< caveat   :>
 
 B<notes:>  returns everything required up to the response articles themselves. i.e. something like:
- 
+
  <?xml version='1.0' encoding='UTF-8'?>
     <moby:MOBY xmlns:moby='http://www.biomoby.org/moby'>
        <moby:Response moby:authority='http://www.illuminae.com'>
@@ -793,7 +793,7 @@ B<args:>the different arguments required by the mobyException API
 
 
 B<notes:>  returns everything required to use for the responseHeader:
- 
+
   <moby:mobyException moby:refElement='input1' moby:refQueryID='1' moby:severity =''>
                 <moby:exceptionCode>600</moby:exceptionCode>
                 <moby:exceptionMessage>Unable to execute the service</moby:exceptionMessage>
@@ -820,7 +820,7 @@ sub encodeException{
 B<function:> print the XML string of a MOBY response footer
 
 B<usage:> 
- 
+
  return responseHeader('illuminae.com') . $DATA . responseFooter;
 
 B<notes:>  returns everything required after the response articles themselves i.e. something like:
@@ -1009,7 +1009,7 @@ B<example:>
    <SomeObject namespace='' id=''>
        <String namespace='' id='' articleName="SequenceString">TAGCTGATCGAGCTGATGCTGA </String>
    </SomeObject>
-   
+
    my $seq = getNodeContentWithArticle($DOM, "String", "SequenceString");
    print "yeah!" if $seq eq "TAGCTGATCGAGCTGATGCTGA";
 

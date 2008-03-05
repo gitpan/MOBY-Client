@@ -1,7 +1,7 @@
 #!/usr/bin/perl -w
 
-# $Id: DebugYourService.pl,v 1.2 2006/02/28 16:28:29 fgibbons Exp $
-# $Source: /home/repository/moby/moby-live/Perl/scripts/DebugYourService.pl,v $
+# $Id: DebugYourService.pl,v 1.1 2008/02/21 00:14:33 kawas Exp $
+# $Source: /home/repository/moby/moby-live/Perl/MOBY-Client/scripts/DebugYourService.pl,v $
 
 =head1 Quick debugging script
 

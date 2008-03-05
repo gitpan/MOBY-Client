@@ -1,11 +1,9 @@
-Perl MOBY version 0.04
+Perl MOBY version 1.00
+
 ======================
 
 This directory contains the Perl implementation of the MOBY
-architecture.  The "docs" directory contains specific 
-INSTALL-*.txt commissioning procedures for each of web 
-components of MOBY: the MOBY Central, Service Provider 
-and Client software.
+Client codebase.
 
 INSTALLATION
 
@@ -19,9 +17,33 @@ type the following:
 
 DEPENDENCIES
 
-There are different dependencies for each of the MOBY Central,
-Service Provider and Client components. Please consult the 
-installation documentation specific to each component.
+There are several dependencies used by the MOBY::Client codebase
+that are not cleanly installed during the make install phase 
+of installation. 
+
+If you are having any problems automatically getting the dependencies 
+to install properly, please either try command line cpan or download
+each dependency independently and install them as per their installation
+instructions.
+
+WRSF::Lite
+
+If module 'WSRF::Lite' is not installed and you are
+thinking about developing BioMOBY Asynchronous service, 
+then following is for you!
+
+Unfortunately, this module is not available on CPAN 
+and must be manually installed. Some of the 
+dependencies are beta and as such, may not be stable.
+
+Try downloading it from the following link:
+
+http://www.rcs.manchester.ac.uk/research/projects/wsrflite
+
+or you can try searching the net with Google using the keywords:
+
+	'perl WSRF::Lite' 
+
 
 COPYRIGHT AND LICENCE
 

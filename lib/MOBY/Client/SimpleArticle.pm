@@ -23,10 +23,10 @@ MOBY::Client::SimpleArticle - a small object describing the Simple articles from
             $DOM = $input->XML_DOM;  # get the XML as a LibXML DOM object
             $namespace = $input->namespace;  # get the namespace of the object
             $id = $input->id;  # get the id of the object (the id of the outermost MOBY object XML block)
-            
+
             # do your business here and fill $invocation_output
 	}
-	
+
         $MOBY_RESPONSE .= simpleResponse( # create an empty response for this queryID
                 $invocation_output   # response for this query
                 , "myOutput"  # the article name of that output object
@@ -37,7 +37,7 @@ MOBY::Client::SimpleArticle - a small object describing the Simple articles from
 
 or to construct a representation of a simple article from a findService call
 to MOBY::Central
- 
+
 
 =cut
 
@@ -84,7 +84,7 @@ Mark Wilkinson (markw at illuminae dot com)
  Returns   :	MOBY::Client::SimpleArticle object
  Args      :    either of the following two methods may be used to auto-generate the
                 object by passing the appropriate XML node as a string, or XML::DOM node object
-                
+
                 XML => $XML
                 XML_DOM => $XML::LibXML::Node
 

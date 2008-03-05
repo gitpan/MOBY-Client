@@ -13,7 +13,13 @@ MOBY::Client::SimpleInput - a small object describing a MOBY service
 
 =head1 DESCRIPTION
 
+A module for describing the Simple inputs to a moby service
+
+=cut
+
 =head1 AUTHORS
+
+Mark Wilkinson (markw at illuminae dot com)
 
 =cut
 

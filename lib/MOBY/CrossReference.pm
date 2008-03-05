@@ -1,6 +1,6 @@
 package MOBY::CrossReference;
 
-#$Id: CrossReference.pm,v 1.7 2005/09/06 20:23:40 fgibbons Exp $
+#$Id: CrossReference.pm,v 1.2 2008/02/21 17:15:40 kawas Exp $
 use strict;
 use Carp;
 use vars qw($AUTOLOAD @ISA);
@@ -10,6 +10,12 @@ use vars qw($AUTOLOAD @ISA);
 MOBY::Client::CrossReference - a small object describing a MOBY Simple input/output article
 
 =head1 SYNOPSIS
+
+   use MOBY::CrossReference;
+   # do stuff with xref ... read below
+
+
+=cut
 
 =head1 DESCRIPTION
 

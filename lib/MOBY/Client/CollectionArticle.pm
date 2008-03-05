@@ -22,7 +22,7 @@ portion of a MOBY service invocation or response message.
 Parsing a MOBY Service Invocation
 
  use MOBY::CommonSubs qw(:all);
- 
+
  sub myService {
     my ($caller, $data) = @_;
 
@@ -41,7 +41,7 @@ Can be used either in this way:
             # @simples contains a list of MOBY::Client::SimpleArticles
             # do your business here and fill $invocation_output
 	}
-	
+
         $MOBY_RESPONSE .= simpleResponse( # create an empty response for this queryID
                 $invocation_output   # response for this query
                 , "myOutput"  # the article name of that output object
@@ -53,7 +53,7 @@ Can be used either in this way:
 or to construct a representation of a collection article from a findService call
 to MOBY::Central
 
- 
+
 =head1 DESCRIPTION
 
 This describes the Collection articles from either the findService Response of MOBY Central
@@ -107,7 +107,7 @@ Mark Wilkinson (markw at illuminae dot com)
  Returns   :	MOBY::Client::SimpleArticle object
  Args      :    either of the following two methods may be used to auto-generate the
                 object by passing the appropriate XML node as a string, or XML::DOM node object
-                
+
                 XML => $XML
                 XML_DOM => $XML::DOM::NODE
 

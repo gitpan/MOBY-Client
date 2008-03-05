@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 
 #
-# $Id: GetObjectDefinition.pl,v 1.1 2005/11/02 13:18:29 pieter Exp $
-# $Source: /home/repository/moby/moby-live/Perl/scripts/GetObjectDefinition.pl,v $
+# $Id: GetObjectDefinition.pl,v 1.1 2008/02/21 00:14:33 kawas Exp $
+# $Source: /home/repository/moby/moby-live/Perl/MOBY-Client/scripts/GetObjectDefinition.pl,v $
 #
 
 use strict;

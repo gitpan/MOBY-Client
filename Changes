@@ -1,5 +1,9 @@
 Revision history for Moby-Client
 
-0.01    Date/time
-        First version, released on an unsuspecting world.
+1.01    5 March 2008
+        * removed some failing pod tests
+        * added some preliminary modules for parsing RDF (Namespaces/ServiceTypes). Others will follow
+
+1.00    12 Feb 2008
+        MOBY::Client released to CPAN
 

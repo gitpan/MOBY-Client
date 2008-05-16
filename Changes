@@ -1,4 +1,18 @@
-Revision history for Moby-Client
+Revision history for MOBY-Client
+
+1.02   16 May 2008
+	   * fixed bug in MOBY::Client::Central::DUMP that resulted
+		 in an error ('Not an ARRAY reference at 
+		 MOBY/Client/Central.pm line 1927') being raised.
+		 Thanks to Pieter Neerincx for finding the bug and a
+		 solution.
+		  
+	   * fixed bug that allowed service types to be registered 
+		 with empty ISA relationships.
+			  
+	   * MOBY WSRF implementation was not WSRF compliant in some 
+		 points, and the same happened with sample code. Both the 
+		 libraries and the generated WSDL have been fixed.
 
 1.01    5 March 2008
         * removed some failing pod tests

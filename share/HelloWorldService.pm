@@ -4,7 +4,7 @@ package MOBY::Services::HelloWorldService;
 # to you what you send it... in proper MOBY
 # message format of course :-)
 
-use MOBY::CommonSubs qw(:all)
+use MOBY::CommonSubs qw(:all);
 
 sub helloWorld {
 	my ($caller, $message) = @_;  # get the incoming MOBY query XML

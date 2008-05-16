@@ -1,4 +1,4 @@
-#$Id: CommonSubs.pm,v 1.2 2008/02/21 17:15:40 kawas Exp $
+#$Id: CommonSubs.pm,v 1.3 2008/03/05 20:27:11 kawas Exp $
 
 =head1 NAME
 
@@ -1042,7 +1042,7 @@ sub getNodeContentWithArticle {
   for ( 1 .. $nodes->size() ) {
     my $child = $nodes->get_node( $_ );
     if ( _moby_getAttribute($child, "articleName")
-	 && ( $child->getAttribute("articleName") eq $articleName )
+	 && ( _moby_getAttribute($child, "articleName") eq $articleName )
        )
       {
 	# now we have a valid child, get the content... stringified... regardless of what it is

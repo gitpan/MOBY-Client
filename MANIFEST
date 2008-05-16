@@ -8,17 +8,16 @@ inc/Module/Install/Fetch.pm
 inc/Module/Install/Include.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
-inc/Module/Install/Scripts.pm
 inc/Module/Install/Share.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 INSTALL
-lib/MOBY/Client/Central.pm
-lib/MOBY/Client/CollectionArticle.pm
 lib/MOBY/Async/LSAE.pm
 lib/MOBY/Async/Service.pm
 lib/MOBY/Async/SimpleServer.pm
 lib/MOBY/Async/WSRF.pm
+lib/MOBY/Client/Central.pm
+lib/MOBY/Client/CollectionArticle.pm
 lib/MOBY/Client/Exception/MobyException.pm
 lib/MOBY/Client/Exception/MobyExceptionCodes.pm
 lib/MOBY/Client/OntologyServer.pm
@@ -28,6 +27,10 @@ lib/MOBY/Client/Service.pm
 lib/MOBY/Client/ServiceInstance.pm
 lib/MOBY/Client/SimpleArticle.pm
 lib/MOBY/Client/SimpleInput.pm
+lib/MOBY/CommonSubs.pm
+lib/MOBY/CrossReference.pm
+lib/MOBY/MobyXMLConstants.pm
+lib/MOBY/RDF/Parsers/DatatypeParser.pm
 lib/MOBY/RDF/Parsers/NamespaceParser.pm
 lib/MOBY/RDF/Parsers/ServiceTypeParser.pm
 lib/MOBY/RDF/Predicates/DC_PROTEGE.pm
@@ -37,17 +40,13 @@ lib/MOBY/RDF/Predicates/OMG_LSID.pm
 lib/MOBY/RDF/Predicates/OWL.pm
 lib/MOBY/RDF/Predicates/RDF.pm
 lib/MOBY/RDF/Predicates/RDFS.pm
-lib/MOBY/CommonSubs.pm
-lib/MOBY/CrossReference.pm
-lib/MOBY/MobyXMLConstants.pm
 lib/MOBY/RDF/Utils.pm
 License
 Makefile.PL
 MANIFEST			This list of files
 META.yml
+populate_libs.pl
 README
-share/HelloWorldService.pm
-share/LocalServices.pm
 scripts/DebugYourService.pl
 scripts/FindServices.pl
 scripts/GetDump.pl
@@ -56,6 +55,8 @@ scripts/GetResourceURLs.pl
 scripts/GetServicesProviders.pl
 scripts/GetServicesTypes.pl
 scripts/MOBY-Client05.cgi
+share/HelloWorldService.pm
+share/LocalServices.pm
 t/Client-Central.t
 t/Client-CollectionArticle.t
 t/Client-OntologyServer.t
@@ -64,4 +65,3 @@ t/Client-SecondaryArticle.t
 t/Client-Service.t
 t/Client-ServiceInstance.t
 t/Client-SimpleArticle.t
-

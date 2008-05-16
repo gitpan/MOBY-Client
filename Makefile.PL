@@ -4,13 +4,12 @@ name 'MOBY-Client';
 
 # all_from 'lib/MOBY/Client/Central.pm';
 author 'Mark Wilkinson <markw@illuminae.com>';
-version '1.01';
+version '1.02';
 license 'perl';
+abstract 'This distribution is for communicating with a MOBY Central registry';
 
 build_requires 'Test::More' => 0;
 build_requires 'Test::Pod'  => 0;
-
-requires( perl => 5.005 );
 
 # MOBY::Client::* depends
 requires 'SOAP::Lite'            => '0.60';
@@ -55,7 +54,7 @@ END_OF_TEXT
 
 		
 	}
-	requires 'WSRF::Lite'               => '0.8.2.2';
+	requires 'WSRF::Lite'               => '0.008.2.2';
 	requires 'XML::DOM'                 => '';
 	requires 'DateTime::Format::Epoch'  => '';
 	requires 'DateTime::Format::W3CDTF' => '';

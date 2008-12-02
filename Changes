@@ -1,5 +1,13 @@
 Revision history for MOBY-Client
 
+1.03
+       * changes to makefile reflecting the cpan addition of wsrf
+       * added MOBY/Async.pm to the module
+       * added MOBY/Client/MobyUnitTest for unit testing our services.
+       * RDF for service instances now includes unit test information if unit
+	     test information is available for the service instance.
+	   * fixed how references were created in MOBY::RDF::Ontologies::*
+       
 1.02   16 May 2008
 	   * fixed bug in MOBY::Client::Central::DUMP that resulted
 		 in an error ('Not an ARRAY reference at 

@@ -8,12 +8,12 @@ use Cwd;
 # this module copies the files from MOBY-Server/lib/*.pm that are required for MOBY-Client to create a distribution
 use Data::Dumper;
 
-my @MOBY 		= qw ( CommonSubs.pm CrossReference.pm MobyXMLConstants.pm );
+my @MOBY 		= qw ( Async.pm CommonSubs.pm CrossReference.pm MobyXMLConstants.pm );
 my @Async 		= qw ( LSAE.pm Service.pm SimpleServer.pm WSRF.pm );
-my @Client		= qw ( Central.pm CollectionArticle.pm OntologyServer.pm Registration.pm SecondaryArticle.pm Service.pm ServiceInstance.pm SimpleArticle.pm SimpleInput.pm );
+my @Client		= qw ( Central.pm CollectionArticle.pm OntologyServer.pm Registration.pm SecondaryArticle.pm Service.pm ServiceInstance.pm SimpleArticle.pm SimpleInput.pm MobyUnitTest.pm );
 my @Exception 	= qw ( MobyException.pm MobyExceptionCodes.pm );
 my @RDF 		= qw ( Utils.pm );
-my @Parsers 	= qw ( ServiceTypeParser.pm NamespaceParser.pm DatatypeParser.pm);
+my @Parsers 	= qw ( ServiceTypeParser.pm NamespaceParser.pm DatatypeParser.pm ServiceParser.pm );
 my @predicates  = qw ( DC_PROTEGE.pm MOBY_PREDICATES.pm OMG_LSID.pm RDF.pm RDFS.pm FETA.pm OWL.pm );
 
 # current working directory ...
@@ -100,6 +100,7 @@ foreach my $file (@predicates) {
 #    ¦   ¦   ServiceInstance.pm
 #    ¦   ¦   SimpleArticle.pm
 #    ¦   ¦   SimpleInput.pm
+#    ¦   ¦   MobyUnitTest.pm   
 #    ¦   ¦
 #    ¦   +---Exception
 #    ¦           MobyException.pm
@@ -111,6 +112,8 @@ foreach my $file (@predicates) {
 #    ¦   +---Parsers
 #    ¦   ¦       ServiceTypeParser.pm
 #    ¦   ¦       NamespaceParser.pm
+#    ¦   ¦       ServiceParser.pm
+#    ¦   ¦       DatatypeParser.pm
 #    ¦   ¦
 #    ¦   +---Predicates
 #    ¦           DC_PROTEGE.pm

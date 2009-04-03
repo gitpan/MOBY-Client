@@ -27,4 +27,4 @@ requires:
   RDF::Core: 0.51
   XML::Simple: 2.18
   XML::SemanticCompare: 0.91
-version: 1.03
+version: 1.04

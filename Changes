@@ -1,5 +1,24 @@
 Revision history for MOBY-Client
 
+1.04
+	   *  Fix bug in CollectionArticle, SimpleInput, SecondaryArticle, and 
+		  SimpleArticle that caused objects created to have 'memory'.
+	   *  Updated the MOBY::Client::ServiceInstance module to reflect
+		  the fact that services can have >= 0 MobyUnitTests.
+	   *  In MOBY::RDF::Utils, fixed typo in the 
+		  ref ($self)  =~ m// statement
+	   *  MOBY::RDF::Parsers::ServiceParser, added a loop to parse out 
+		  unit tests in those instances that more than one is defined, 
+		  and added code to parse out the datatype/namespace/servicetype 
+		  term from a uri/lsid.
+	   *  Added the function 'raw_execute' to MOBY::Async::Service to
+		  allow calling of services with raw XML similarly to the method
+		  in MOBY::Client::Service.
+	   *  Fixed typo in MOBY::Client::Service that refered to POST 
+		  services as category 'post' rather than 'cgi'
+	   *  Added the category 'cgi-async' to the list of service
+	      categories that are allowed.
+
 1.03
        * changes to makefile reflecting the cpan addition of wsrf
        * added MOBY/Async.pm to the module

@@ -4,7 +4,7 @@ name 'MOBY-Client';
 
 # all_from 'lib/MOBY/Client/Central.pm';
 author 'Mark Wilkinson <markw@illuminae.com>';
-version '1.03';
+version '1.04';
 license 'perl';
 abstract 'This distribution is for communicating with a MOBY Central registry';
 

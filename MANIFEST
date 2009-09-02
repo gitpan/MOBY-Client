@@ -8,7 +8,6 @@ inc/Module/Install/Fetch.pm
 inc/Module/Install/Include.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
-inc/Module/Install/Share.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 INSTALL
@@ -21,6 +20,7 @@ lib/MOBY/Client/Central.pm
 lib/MOBY/Client/CollectionArticle.pm
 lib/MOBY/Client/Exception/MobyException.pm
 lib/MOBY/Client/Exception/MobyExceptionCodes.pm
+lib/MOBY/Client/MobyUnitTest.pm
 lib/MOBY/Client/OntologyServer.pm
 lib/MOBY/Client/Registration.pm
 lib/MOBY/Client/SecondaryArticle.pm
@@ -28,14 +28,13 @@ lib/MOBY/Client/Service.pm
 lib/MOBY/Client/ServiceInstance.pm
 lib/MOBY/Client/SimpleArticle.pm
 lib/MOBY/Client/SimpleInput.pm
-lib/MOBY/Client/MobyUnitTest.pm
 lib/MOBY/CommonSubs.pm
 lib/MOBY/CrossReference.pm
 lib/MOBY/MobyXMLConstants.pm
 lib/MOBY/RDF/Parsers/DatatypeParser.pm
 lib/MOBY/RDF/Parsers/NamespaceParser.pm
-lib/MOBY/RDF/Parsers/ServiceTypeParser.pm
 lib/MOBY/RDF/Parsers/ServiceParser.pm
+lib/MOBY/RDF/Parsers/ServiceTypeParser.pm
 lib/MOBY/RDF/Predicates/DC_PROTEGE.pm
 lib/MOBY/RDF/Predicates/FETA.pm
 lib/MOBY/RDF/Predicates/MOBY_PREDICATES.pm

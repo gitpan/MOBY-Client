@@ -1,5 +1,8 @@
 Revision history for MOBY-Client
 
+1.06
+       *  fix: dont make an un-necessary network call when instantiating
+               a MOBY::Client::OntologyServer object.
 1.05
 	   *  Updated the Makefile.PL to handle some missing dependencies.
 	   *  Updated CommonSubs to remove all hard coded entries for the
